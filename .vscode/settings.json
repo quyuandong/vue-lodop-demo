@@ -1,0 +1,41 @@
+{
+  "stylelint.additionalDocumentSelectors": ["vue"],
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned"
+    },
+    "prettyhtml": {
+      "printWidth": 150, //Vue Tempelate格式化配置
+      "tabWidth": 4,
+      "useTabs": false,
+      "semi": false,
+      "singleQuote": false,
+      "wrapAttributes": true
+      // "sortAttributes": true
+    },
+    "prettier": {
+      "printWidth": 150, //Vue js格式化配置
+      "tabWidth": 2,
+      "useTabs": false,
+      "semi": false,
+      "singleQuote": true,
+      "trailingComma": "none",
+      "bracketSpacing": true,
+      "arrowParens": "avoid",
+      "endOfLine": "crlf",
+      "jsxBracketSameLine": true,
+      "proseWrap": "always"
+    },
+    "stylus-supremacy": {
+      "stylusSupremacy.insertBraces": false,
+      "stylusSupremacy.insertColons": false,
+      "stylusSupremacy.insertSemicolons": false
+    }
+  },
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

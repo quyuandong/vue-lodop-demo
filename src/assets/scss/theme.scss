@@ -1,0 +1,138 @@
+/* 改变主题色变量 */
+//$--color-primary: #409eff;
+$--color-white: #fff;
+$--color-black: #000;
+
+$--color-primary: #005bac;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%);
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%);
+$--current-tree-node-bg-color: rgba(0, 128, 255, 0.122);
+$--color-bg: #eee;
+$--color-text: #666;
+$--color-a: #369;
+$--color-hover: #f96;
+$--border: 1px solid #ebeef5;
+$--border-deep: 1px solid #cccccc;
+$--border-dashed: 1px dashed #e8e8e8;
+$--border-dialog: 1px solid #dcdfe6;
+
+$button-selected-color: #2a76cd; //  按钮/选中状态色
+
+$--background-layout: #fff; /* 背景颜色 */
+$--background-color: rgba(0, 0, 0, 0.1); /* 背景颜色 */
+$--background-color-shallow: #fafafa; //rgba(0, 0, 0, 0.02); /* 背景颜色  #f8f8f8*/
+$--background-header: #fff; /* header 背景颜色 */
+$--background-sidebar: #545c64; /* sidebar 背景颜色 */
+$--icon-sidebar: rgba(255, 255, 255, 0.8); /*icon默认颜色 */
+
+// 系统颜色
+$primary: #409eff; //#32a5c2;
+$primary-shallow: #ecf5ff;
+$secondary: #ed913e;
+$thirdary: #444444;
+$white: white;
+
+// 柱状/统计图颜色
+$t-orange: #ed913e;
+$t-blue: #48aec3;
+$t-green: #57c98a;
+$t-darkblue: #5797c9;
+$t-grassgreen: #a9c34f;
+$t-lightred: #d87474;
+$t-lightorange: #e3ca87;
+$t-lightgreen: #74d8c4;
+// 文字颜色
+$p-primary: #444444;
+$p-secondary: #777777;
+$p-thirdary: #999999;
+
+// 线条色
+$b-primary: #e5e5e5;
+$b-secondary: #cfcfcf;
+$b-thirdary: #f2f2f2;
+$steps-line: #c0c4cc;
+
+$error: #bb4747;
+$--orgTree-current: rgba(0, 119, 255, 0.18);
+
+//  主色
+$logo-front-color: #cd9c15; //  logo 前景色
+$layout-header-navi: #104a90; //  头部导航背景
+
+//  辅助色
+$main-background-color: #f2f2f2; //  主背景色
+$button-selected-color: #2a76cd; //  按钮/选中状态色
+$layout-light-color: #dde3ea; //  二级导航背景
+$input-border: #dbdcdc; //  按钮描边/输入框描边
+$stroke-color: $input-border;
+$card-background-color: #fdfdfd; //  卡片背景
+$alert-tip-color: rgba(68, 75, 86, 0.95);
+
+//状态色
+$disable-color: #f4f4f4; // 禁用
+$word-hyperlink-color: #068ce8; // 文字超链接
+$message-corner-color: #f1053f; // 消息角标颜色
+$primary-color: #3362a8; // 选中项、默认按钮
+$primary-gray-color: #c6c9cd; // 图表、进度条、进程类灰色
+
+// 状态色 -- 流程配色
+$underway-color: #2a76cd; //进行中
+$success-color: #44b365; //已完成
+$warning-color: #eaa926; //提醒/新增
+$error-color: #cc3d3d; //警示/异常
+$notBegin-color: #cccccc; //待处理/未开始
+
+//  图表用色,透明度将为0.85（使用rgba函数实现）
+$chart-region-color1: #2a76cd;
+$chart-region-color2: #30b3b3;
+$chart-region-color3: #44b365;
+$chart-region-color4: #cd9c15;
+$chart-region-color5: #cc3d3d;
+$chart-region-color6: #8554c9;
+$chart-region-color7: #3c3a9a;
+$chart-region-color8: #3a4777;
+
+//  字体
+$font-family: 'Microsoft Yahei', 'HeiPingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Helvetica', 'Arial';
+$base-font-color: #3c4455; //  字体颜色
+$text-color-help: rgba($base-font-color, 0.7); // 辅助文字颜色
+$text-color-link: #2a76cd; // 链接文字颜色
+$font-size-base: 14px;
+
+$font-size-md: $font-size-base + 2px;
+$font-size-lg: $font-size-md + 2px;
+$font-size-sm: $font-size-base - 2px;
+
+$font-size-panel-title: $font-size-lg;
+$font-size-card-title: $font-size-md;
+
+//  排版
+$base-line-height: 1.42857142857143; //  基本行高
+$box-shadow-base: 0 2px 4px rgba(36, 100, 178, 0.2); //  盒子阴影
+$box-shadow-card: 0 2px 12px 0 rgba(0, 0, 0, 0.1); //card阴影
+$box-shadow-black: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+
+//分割线及边框
+$vertical-nav1-line: 1px solid #073572; // 垂直导航一级菜单分割线
+$vertical-nav2-line: 1px solid #3362a8; // 垂直导航二级菜单分割线
+$content-line: 1px solid #dee1e5; // 内容区及通用分割线
+$dropDownMenu-line: 1px solid #d9d9d9; // 下拉菜单的描边
+
+//  按钮
+$base-button-height: 2em; //  按钮高度
+$button-disabled-color: #cccccc;
+$button-disabled-background: #efefef;
+$button-padding-lr: $font-size-base + 2px;
+
+//  Layout
+$layout-header-height: 38px;
+$layout-sider1-width-open: 180px;
+$layout-sider1-width-close: 48px;
+$layout-sider2-width: 180px;
+/*************模板布局--开始***************/
+$--aside-width: 240px; /*header title宽度,即aside容器宽度*/
+$--header-height: 50px;
+$--nav-height: 40px;
+$--cell-height: 36px;
+$--p-height: 24px;
+$--table-header-height: 46px; /* 表格组件header高*/

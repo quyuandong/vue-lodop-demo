@@ -1,0 +1,76 @@
+{
+  "name": "safty-management",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:modern": "vue-cli-service build --modern",
+    "tslint": "tslint --fix -c ./tslint.json 'src/**/*{.ts,.tsx,.vue}'",
+    "eslint": "eslint --fix --ext .js,.vue -f ./node_modules/eslint-friendly-formatter ./src",
+    "stylelint": "stylelint src/**/*.vue  --custom-syntax postcss-html --fix",
+    "stylelint:scss": "stylelint src/**/*.scss src/**/*.css --fix",
+    "lint": "yarn eslint &&  yarn stylelint && yarn tslint",
+    "lint-staged": "yarn eslint && yarn stylelint && yarn stylelint:scss",
+    "mock": "Mock=start vue-cli-service serve",
+    "test": "vue-cli-service test:unit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "yarn lint-staged"
+  },
+  "dependencies": {
+    "async-validator": "^3.2.3",
+    "axios": "^0.18.0",
+    "dayjs": "^1.8.8",
+    "element-ui": "^2.10.1",
+    "lodash": "^4.17.20",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.0",
+    "@types/lodash": "^4.14.123",
+    "@types/mocha": "^5.2.4",
+    "@typescript-eslint/parser": "^1.11.0",
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-plugin-typescript": "^3.3.0",
+    "@vue/cli-plugin-unit-mocha": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.8.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.0.2",
+    "mockjs": "^1.1.0",
+    "node-sass": "^4.11.0",
+    "postcss-comment": "^2.0.0",
+    "sass": "^1.17.0",
+    "sass-loader": "^7.1.0",
+    "stylelint": "~10.1.0",
+    "stylelint-config-recess-order": "^2.0.2",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-order": "^3.0.0",
+    "typescript": "~3.2.1",
+    "vue-class-component": "^7.0.1",
+    "vue-cli-plugin-axios-ts": "^1.0.2",
+    "vue-property-decorator": "^8.0.0",
+    "vue-template-compiler": "^2.5.21",
+    "vuex-class": "^0.3.1",
+    "webpack-bundle-analyzer": "^3.3.2"
+  }
+}

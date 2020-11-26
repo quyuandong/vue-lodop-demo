@@ -5,7 +5,7 @@
         <section>
             <div class="section">模板管理</div>
             <el-table
-                :data="tempList"
+                :data="tempTableList"
                 style="width: 100%"
                 size="mini"
                 border
@@ -56,79 +56,11 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <el-dialog
-                title="添加模板"
-                :visible.sync="visible"
-                width="310px"
-            >
-                <el-form
-                    ref="form"
-                    :model="form"
-                    size="small"
-                    :rules="rules"
-                    label-width="80px"
-                >
-                    <el-form-item
-                        label="模板名称"
-                        prop="title"
-                    >
-                        <el-input v-model="form.title"></el-input>
-                    </el-form-item>
-                    <el-form-item
-                        label="模板类型"
-                        prop="type"
-                    >
-                        <el-select v-model="form.type">
-                            <el-option
-                                label="出库单"
-                                :value="1"
-                            ></el-option>
-                            <el-option
-                                label="入库单"
-                                :value="2"
-                            ></el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item
-                        label="模板宽度"
-                        prop="width"
-                    >
-                        <el-input v-model="form.width"></el-input>
-                    </el-form-item>
-                    <el-form-item
-                        label="模板高度"
-                        prop="height"
-                    >
-                        <el-input v-model="form.height"></el-input>
-                    </el-form-item>
-                    <el-form-item
-                        label="纸张宽度"
-                        prop="pageWidth"
-                    >
-                        <el-input v-model="form.pageWidth"></el-input>
-                    </el-form-item>
-                    <el-form-item
-                        label="纸张高度"
-                        prop="pageHeight"
-                    >
-                        <el-input v-model="form.pageHeight"></el-input>
-                    </el-form-item>
-                </el-form>
-                <div
-                    slot="footer"
-                    class="dialog-footer"
-                >
-                    <el-button
-                        size="mini"
-                        @click="visible = false"
-                    >取 消</el-button>
-                    <el-button
-                        type="primary"
-                        size="mini"
-                        @click="savaTemp"
-                    >确 定</el-button>
-                </div>
-            </el-dialog>
+            <AddTempDialog
+                v-if="tempDialogVisible"
+                :show-dialog="tempDialogVisible"
+                @close="tempDialogVisible=false"
+            ></AddTempDialog>
         </section>
         <!-- <section>
             <div class="section">模板打印测试</div>
@@ -145,7 +77,7 @@
                 >
                     <el-select v-model="printForm.tempIndex">
                         <el-option
-                            v-for="(item,index) in tempList"
+                            v-for="(item,index) in tempTableList"
                             :key="index"
                             :label="item.title"
                             :value="index"
@@ -221,34 +153,22 @@
 </template>
 
 <script lang="ts">
+import AddTempDialog from './common/AddTempDialog.vue'
 import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
+import { tempData } from '@/views/common/mockData'
 
 @Component({
-  components: {}
+  components: { AddTempDialog }
 })
-export default class Index extends Vue {
-  tempList: any[] = [] //模板列表
-  form: Object = {
-    title: '',
-    type: 1, // 模板类型 1：出库单；2：入库单
-    width: '',
-    height: '',
-    pageWidth: '',
-    pageHeight: '',
-    tempItems: []
-  }
-  rules: any = {
-    title: { required: true, message: '请输入模板名称' },
-    type: { required: true, message: '请选择模板类型' },
-    width: { required: true, message: '请输入模板宽度' },
-    height: { required: true, message: '请输入模板高度' },
-    pageWidth: { required: true, message: '请输入纸张宽度' },
-    pageHeight: { required: true, message: '请输入纸张高度' }
-  }
+export default class Home extends Vue {
+  @State tempTableList
+  @Mutation SET_TEMP_TABLE_LIST
+  tempDialogVisible: boolean = false //是否显示模板
+
   // 创建模板
   openCreate() {
-    // this.form = defaultTemp()
-    // this.visible = true
+    this.tempDialogVisible = true
   }
   // 模板预览
   handlePreview(index, row) {
@@ -256,23 +176,27 @@ export default class Index extends Vue {
   }
   // 模板设计
   handleEdit(index, row) {
-    // this.$router.push({
-    //   path: '/designer',
-    //   query: {
-    //     index: index,
-    //   },
-    // })
+    this.$router.push({
+      path: '/design',
+      query: {
+        index: index
+      }
+    })
   }
   // 模板删除
   handleDelete(index, row) {
     this.$confirm('确认删除该条数据吗？', '确认信息')
       .then(isPass => {
-        // if (isPass) {
-        //   this.tempList.splice(index, 1)
-        //   localStorage.setItem('tempList', JSON.stringify(this.tempList))
-        // }
+        if (isPass) {
+          let tableData: any = this.$cloneDeep(this.tempTableList)
+          tableData.splice(index, 1)
+          this.SET_TEMP_TABLE_LIST(tableData)
+        }
       })
       .catch()
+  }
+  mounted() {
+    this.SET_TEMP_TABLE_LIST(tempData)
   }
 }
 </script>

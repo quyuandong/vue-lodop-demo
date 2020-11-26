@@ -1,15 +1,43 @@
 <template>
-    <div class="index">测试</div>
+    <div>测试</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { OutStockOptions, InStockOptions } from '@/views/common/tempData'
 
 @Component({
   components: {}
 })
 export default class Index extends Vue {
+  index: any = ''
+  value: any = {
+    title: 'demo',
+    width: 750,
+    height: 550,
+    pageWidth: 750,
+    pageHeight: 550,
+    tempItems: []
+  }
+  widgets: any = OutStockOptions
 
+  handleSave(data) {
+    let tempList: any = []
+    tempList[this.index] = data
+    localStorage.setItem('tempList', JSON.stringify(tempList))
+    this.$router.back()
+  }
+
+  created() {
+    this.index = this.$route.query.index
+    try {
+      let tempList = []
+      this.value = tempList[this.index]
+      this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }
 </script>
 
